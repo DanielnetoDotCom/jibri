@@ -44,6 +44,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.logging.Level
 import java.util.logging.Logger
+import java.util.UUID
 
 /**
  * Parameters needed for joining the call in Selenium
@@ -138,7 +139,8 @@ class JibriSelenium(
      * Set up default chrome driver options (using fake device, etc.)
       */
     init {
-        System.setProperty("webdriver.chrome.logfile", "/tmp/chromedriver.log")
+        var uniqueID = UUID.randomUUID().toString()
+        System.setProperty("webdriver.chrome.logfile", "/tmp/chromedriver_" + uniqueID + ".log")
         val chromeOptions = ChromeOptions()
         chromeOptions.addArguments(
                 "--use-fake-ui-for-media-stream",
