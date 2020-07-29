@@ -148,7 +148,9 @@ class JibriSelenium(
                 "--kiosk",
                 "--enabled",
                 "--disable-infobars",
-                "--autoplay-policy=no-user-gesture-required"
+                "--autoplay-policy=no-user-gesture-required",
+                "--disable-dev-shm-usage",
+                "--no-sandbox"
         )
         chromeOptions.setExperimentalOption("w3c", false)
         chromeOptions.addArguments(jibriSeleniumOptions.extraChromeCommandLineFlags)
